@@ -1,7 +1,6 @@
 import React from 'react';
 import { Knob } from '../Knob';
 
-
 interface Props {
     getVal: (key: string) => number;
     handleParamChange: (key: string, value: number) => void;
@@ -12,21 +11,26 @@ export const OscillatorSection: React.FC<Props> = ({ getVal, handleParamChange }
         <section className="panel-section">
             <div className="section-header">OSCILLATOR & FILTER</div>
             <div className="controls-grid">
-                {/* WAVE is handled via Knobs, assuming standard implementation where range selects wave or continuous */}
-                <Knob label="Wave" value={getVal('OSC_WAVE')} min={0} max={255} onChange={(v) => handleParamChange('OSC_WAVE', v)} color="#00aaff" />
-                <Knob label="Range" value={getVal('OSC_RANGE')} min={0} max={127} onChange={(v) => handleParamChange('OSC_RANGE', v)} color="#00aaff" />
-                <Knob label="Pulse Width" value={getVal('OSC_PULSE_WIDTH')} min={0} max={127} onChange={(v) => handleParamChange('OSC_PULSE_WIDTH', v)} color="#00aaff" />
-                <Knob label="LFO Mod" value={getVal('OSC_LFO_PITCH')} min={0} max={127} onChange={(v) => handleParamChange('OSC_LFO_PITCH', v)} color="#00aaff" />
+                {/* MIXER (Square, Tri, Saw/Sub, Noise) */}
+                <div style={{ display: 'flex', gap: '5px' }}>
+                    <Knob label="Square" value={getVal('OSC_SQ_LEVEL')} min={0} max={255} onChange={(v) => handleParamChange('OSC_SQ_LEVEL', v)} color="#00aaff" size={50} />
+                    <Knob label="Tri" value={getVal('OSC_TRI_LEVEL')} min={0} max={255} onChange={(v) => handleParamChange('OSC_TRI_LEVEL', v)} color="#00aaff" size={50} />
+                    <Knob label="Sub" value={getVal('MIX_SUB')} min={0} max={127} onChange={(v) => handleParamChange('MIX_SUB', v)} color="#00aaff" size={50} />
+                    <Knob label="Noise" value={getVal('OSC_NOISE_LEVEL')} min={0} max={127} onChange={(v) => handleParamChange('OSC_NOISE_LEVEL', v)} color="#aaaaaa" size={50} />
+                </div>
 
-                {/* MIXER */}
-                <Knob label="Noise" value={getVal('MIX_NOISE')} min={0} max={127} onChange={(v) => handleParamChange('MIX_NOISE', v)} color="#aaaaaa" />
-                <Knob label="Sub" value={getVal('MIX_SUB')} min={0} max={127} onChange={(v) => handleParamChange('MIX_SUB', v)} color="#00aaff" />
+                {/* SHAPE */}
+                <Knob label="P.Width" value={getVal('OSC_PULSE_WIDTH')} min={0} max={127} onChange={(v) => handleParamChange('OSC_PULSE_WIDTH', v)} color="#00eeff" />
+                <Knob label="PWM LFO" value={getVal('OSC_PWM_SRC')} min={0} max={127} onChange={(v) => handleParamChange('OSC_PWM_SRC', v)} color="#00eeff" />
+
+                {/* NOISE/SUB TYPE (Selectors - mapped to Knobs for now until selector UI exists) */}
+                <Knob label="Sub Type" value={getVal('MIX_SUB_TYPE')} min={0} max={127} onChange={(v) => handleParamChange('MIX_SUB_TYPE', v)} color="#444444" size={40} />
+                <Knob label="Ns Type" value={getVal('OSC_NOISE_TYPE')} min={0} max={127} onChange={(v) => handleParamChange('OSC_NOISE_TYPE', v)} color="#444444" size={40} />
 
                 <div className="spacer"></div>
 
                 <Knob label="Cutoff" value={getVal('FILTER_CUTOFF')} min={0} max={127} onChange={(v) => handleParamChange('FILTER_CUTOFF', v)} color="#ffaa00" size={70} />
                 <Knob label="Resonance" value={getVal('FILTER_RES')} min={0} max={127} onChange={(v) => handleParamChange('FILTER_RES', v)} color="#ffaa00" />
-                <Knob label="Env Depth" value={getVal('FILTER_ENV_DEPTH')} min={0} max={127} onChange={(v) => handleParamChange('FILTER_ENV_DEPTH', v)} color="#ffaa00" />
             </div>
         </section>
     );

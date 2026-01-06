@@ -10,12 +10,15 @@ export interface CCParam {
 
 export const S1_CC_MAP: Record<string, CCParam> = {
     // === OSCILLATOR ===
-    OSC_WAVE: { cc: 12, name: 'Wave', min: 0, max: 255, type: 'knob' }, // Ranges: 0-63 Sqr, 64-127 Saw, etc? simplified to 0-255
+    OSC_SQ_LEVEL: { cc: 19, name: 'Square Wave Level', min: 0, max: 127, type: 'knob' }, // Ranges: 0-63 Sqr, 64-127 Saw, etc? simplified to 0-255
+    OSC_TRI_LEVEL: { cc: 20, name: 'Triangle Wave Level', min: 0, max: 127, type: 'knob' }, // Ranges: 0-63 Sqr, 64-127 Saw, etc? simplified to 0-255
     OSC_RANGE: { cc: 14, name: 'Range', min: 0, max: 127, type: 'knob' },
     OSC_PULSE_WIDTH: { cc: 15, name: 'Pulse Width', min: 0, max: 127, type: 'knob' },
     OSC_PWM_SRC: { cc: 16, name: 'PWM Source', min: 0, max: 127, type: 'selector', options: ['LFO', 'Manual', 'Env'] }, // ranges need verification, placeholder UI
     OSC_LFO_PITCH: { cc: 13, name: 'Osc LFO Mod', min: 0, max: 127, type: 'knob' },
     OSC_BEND_SENS: { cc: 18, name: 'Bend Sens', min: 0, max: 127, type: 'knob' },
+    OSC_NOISE_LEVEL: { cc: 23, name: 'Noise Level', min: 0, max: 127, type: 'knob' },
+    OSC_NOISE_TYPE: { cc: 78, name: 'Noise Type', min: 0, max: 127, type: 'selector' },
 
     // === MIXER ===
     MIX_SUB: { cc: 21, name: 'Sub Level', min: 0, max: 127, type: 'knob' },
@@ -38,6 +41,7 @@ export const S1_CC_MAP: Record<string, CCParam> = {
     LFO_RATE: { cc: 3, name: 'Rate', min: 0, max: 127, type: 'knob' },
     LFO_DEPTH: { cc: 17, name: 'Depth', min: 0, max: 127, type: 'knob' }, // Check CC
     LFO_WAVE: { cc: 12, name: 'Waveform', min: 0, max: 255, type: 'knob' }, // CC 12 is shared? Manual says LFO Wave is CC 12? Wait.
+    LFO_SYNC: { cc: 106, name: 'LFO Sync', min: 0, max: 127, type: 'toggle' }, // CC 12 is shared? Manual says LFO Wave is CC 12? Wait.
     // Correction: Some manuals say CC 12 is LFO Wave, others say CC 12 is OSC wave on SH-101.
     // S-1 "LFO [WAVE FORM] knob" -> CC 12 (from my search earlier).
     // Let's assume OSC_WAVE might be discrete or hidden, or maybe S-1 doesn't have selectable OSC wave? 

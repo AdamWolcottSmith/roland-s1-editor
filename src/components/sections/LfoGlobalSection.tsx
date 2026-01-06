@@ -26,7 +26,7 @@ export const LfoGlobalSection: React.FC<Props> = ({ getVal, handleParamChange })
                 </div>
 
                 <div className="spacer"></div>
-                <Knob label="Porta" value={getVal('PORTAMENTO')} min={0} max={127} onChange={(v) => handleParamChange('PORTAMENTO', v)} color="#ffffff" />
+                <Knob label="Porta" value={getVal('PORTA_TIME')} min={0} max={127} onChange={(v) => handleParamChange('PORTA_TIME', v)} color="#ffffff" />
                 <Knob label="Vol" value={getVal('VOLUME')} min={0} max={127} onChange={(v) => handleParamChange('VOLUME', v)} color="#ffffff" />
             </div>
         </section>

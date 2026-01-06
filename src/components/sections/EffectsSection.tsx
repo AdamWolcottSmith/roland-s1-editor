@@ -13,18 +13,19 @@ export const EffectsSection: React.FC<Props> = ({ getVal, handleParamChange }) =
             <div className="controls-grid">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <span style={{ fontSize: '0.7em', color: '#666', marginBottom: '5px' }}>DELAY</span>
-                    <Knob label="Level" value={getVal('DELAY_LEVEL')} min={0} max={127} onChange={(v) => handleParamChange('DELAY_LEVEL', v)} color="#aa00ff" size={50} />
-                    <Knob label="Time" value={getVal('DELAY_TIME')} min={0} max={127} onChange={(v) => handleParamChange('DELAY_TIME', v)} color="#aa00ff" size={50} />
+                    <Knob label="Level" value={getVal('DEL_LEVEL')} min={0} max={127} onChange={(v) => handleParamChange('DEL_LEVEL', v)} color="#aa00ff" size={50} />
+                    <Knob label="Time" value={getVal('DEL_TIME')} min={0} max={127} onChange={(v) => handleParamChange('DEL_TIME', v)} color="#aa00ff" size={50} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <span style={{ fontSize: '0.7em', color: '#666', marginBottom: '5px' }}>REVERB</span>
-                    <Knob label="Level" value={getVal('REVERB_LEVEL')} min={0} max={127} onChange={(v) => handleParamChange('REVERB_LEVEL', v)} color="#00ffaa" size={50} />
+                    <Knob label="Level" value={getVal('REV_LEVEL')} min={0} max={127} onChange={(v) => handleParamChange('REV_LEVEL', v)} color="#00ffaa" size={50} />
+                    <Knob label="Time" value={getVal('REV_TIME')} min={0} max={127} onChange={(v) => handleParamChange('REV_TIME', v)} color="#00ffaa" size={50} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <span style={{ fontSize: '0.7em', color: '#666', marginBottom: '5px' }}>CHORUS</span>
-                    <Knob label="Level" value={getVal('CHORUS_LEVEL')} min={0} max={127} onChange={(v) => handleParamChange('CHORUS_LEVEL', v)} color="#ffaa00" size={50} />
+                    <Knob label="Type" value={getVal('CHO_TYPE')} min={0} max={127} onChange={(v) => handleParamChange('CHO_TYPE', v)} color="#ffaa00" size={50} />
                 </div>
             </div>
         </section>

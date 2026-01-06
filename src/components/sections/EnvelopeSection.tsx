@@ -1,5 +1,6 @@
 import React from 'react';
 import { Fader } from '../Fader';
+import { Knob } from '../Knob';
 
 interface Props {
     getVal: (key: string) => number;
@@ -10,6 +11,9 @@ export const EnvelopeSection: React.FC<Props> = ({ getVal, handleParamChange }) 
     return (
         <section className="panel-section">
             <div className="section-header">ENVELOPE (ADSR)</div>
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: 'center' }}>
+                <Knob label="Trig Mode" value={getVal('ENV_TRIG_MODE')} min={0} max={127} onChange={(v) => handleParamChange('ENV_TRIG_MODE', v)} color="#ff0055" size={40} />
+            </div>
             <div className="faders-row">
                 <Fader label="A" value={getVal('ENV_ATTACK')} min={0} max={127} onChange={(v) => handleParamChange('ENV_ATTACK', v)} color="#ff0055" />
                 <Fader label="D" value={getVal('ENV_DECAY')} min={0} max={127} onChange={(v) => handleParamChange('ENV_DECAY', v)} color="#ff0055" />
